@@ -14,7 +14,7 @@ func main() {
     if err != nil {
         fmt.Println("bad")
     } else {
-        fmt.Printf("ok %d", x)
+        fmt.Printf("ok %d\n", x)
     }
 
 }
