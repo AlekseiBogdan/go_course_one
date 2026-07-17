@@ -6,6 +6,7 @@ import (
     "os"
     "strconv"
     "strings"
+    "math"
 )
 
 func main() {
@@ -13,7 +14,7 @@ func main() {
     line, _ := r.ReadString('\n')
     parts := strings.Fields(strings.TrimSpace(line))
     nums := make([]int, 0, len(parts))
-    max := 0
+    max := math.MaxInt
     for _, p := range parts {
         n, _ := strconv.Atoi(p)
         nums = append(nums, n)
