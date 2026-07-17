@@ -5,16 +5,13 @@ import (
 )
 
 func main() {
-	var a int
+	var (
+		a     int
+		total int
+	)
 	fmt.Scan(&a)
-	switch {
-	case a%15 == 0:
-		fmt.Println("FizzBuzz")
-	case a%5 == 0:
-		fmt.Println("Buzz")
-	case a%3 == 0:
-		fmt.Println("Fizz")
-    default:
-        fmt.Println(a)
+	for i := 1; i <= a; i++ {
+		total += i
 	}
+	fmt.Println(total)
 }
