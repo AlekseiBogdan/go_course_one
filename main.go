@@ -5,13 +5,11 @@ import (
 )
 
 func main() {
-	var (
-		a     int
-		total int
-	)
+	var a int
 	fmt.Scan(&a)
-	for i := 1; i <= a; i++ {
-		total += i
-	}
-	fmt.Println(total)
+	fmt.Println(square(a))
+}
+
+func square(n int) int {
+	return n * n
 }
