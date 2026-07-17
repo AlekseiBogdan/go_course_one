@@ -2,14 +2,24 @@ package main
 
 import (
 	"fmt"
+	"strconv"
+    "strings"
 )
 
 func main() {
-	var a int
+	var a string
 	fmt.Scan(&a)
-	fmt.Println(square(a))
+    line := strings.TrimSpace(a)
+	x, err := strToInt(line)
+    if err != nil {
+        fmt.Println("bad")
+    } else {
+        fmt.Printf("ok %d", x)
+    }
+
 }
 
-func square(n int) int {
-	return n * n
+func strToInt(line string) (int, error) {
+    n, err := strconv.Atoi(line)
+	return n, err
 }
