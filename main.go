@@ -1,25 +1,28 @@
 package main
 
 import (
-	"fmt"
-	"strconv"
+    "bufio"
+    "fmt"
+    "os"
+    "strconv"
     "strings"
 )
 
 func main() {
-	var a string
-	fmt.Scan(&a)
-    line := strings.TrimSpace(a)
-	x, err := strToInt(line)
-    if err != nil {
-        fmt.Println("bad")
-    } else {
-        fmt.Printf("ok %d\n", x)
+    r := bufio.NewReader(os.Stdin)
+    line, _ := r.ReadString('\n')
+    parts := strings.Fields(strings.TrimSpace(line))
+    nums := make([]int, 0, len(parts))
+    max := 0
+    for _, p := range parts {
+        n, _ := strconv.Atoi(p)
+        nums = append(nums, n)
     }
-
-}
-
-func strToInt(line string) (int, error) {
-    n, err := strconv.Atoi(line)
-	return n, err
+    for _, i := range nums {
+        if i > max {
+            max = i
+        }
+    }
+    fmt.Println(max)
+    _ = fmt.Print
 }
